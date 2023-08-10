@@ -26,22 +26,14 @@ all remaining arguments have metavariables:
 
 #### Change the type of each offending argument from `A` to `semiOutParam A`
 
-```lean
-class Parent (α β : Type) where
-  some : α
-  other : β
-
-class Child (γ : semiOutParam Type) (α β : Type) extends Parent α β where
-  field : γ
+```diff
+-class Child (γ : Type) (α β : Type) extends Parent α β where
++class Child (γ : semiOutParam Type) (α β : Type) extends Parent α β where
 ```
 
 #### Change the type of each offending argument from `A` to `outParam A`
 
-```lean
-class Parent (α β : Type) where
-  some : α
-  other : β
-
-class Child (γ : outParam Type) (α β : Type) extends Parent α β where
-  field : γ
+```diff
+-class Child (γ : Type) (α β : Type) extends Parent α β where
++class Child (γ : outParam Type) (α β : Type) extends Parent α β where
 ```
