@@ -4,7 +4,7 @@
 
 ### Code
 
-```lean4
+```lean
 class Parent (α β : Type) where
   some : α
   other : β
@@ -15,7 +15,7 @@ class Child (γ : Type) (α β : outParam Type) extends Parent α β where
 
 ### Message
 
-```lean4
+```lean
 cannot find synthesization order for instance Child.toParent with type
   (γ : Type) → {α β : outParam Type} → [self : Child γ α β] → Parent α β
 all remaining arguments have metavariables:
@@ -26,7 +26,7 @@ all remaining arguments have metavariables:
 
 #### Change the type of each offending argument from `A` to `semiOutParam A`
 
-```lean4
+```lean
 class Parent (α β : Type) where
   some : α
   other : β
@@ -37,7 +37,7 @@ class Child (γ : semiOutParam Type) (α β : Type) extends Parent α β where
 
 #### Change the type of each offending argument from `A` to `outParam A`
 
-```lean4
+```lean
 class Parent (α β : Type) where
   some : α
   other : β
