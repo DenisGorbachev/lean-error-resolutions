@@ -9,7 +9,7 @@ class Parent (α β : Type) where
   some : α
   other : β
 
-class Child (γ : Type) (α β : outParam Type) extends Parent α β where
+class Child (γ : Type) (α β : Type) extends Parent α β where
   field : γ
 ```
 
@@ -17,7 +17,7 @@ class Child (γ : Type) (α β : outParam Type) extends Parent α β where
 
 ```lean
 cannot find synthesization order for instance Child.toParent with type
-  (γ : Type) → {α β : outParam Type} → [self : Child γ α β] → Parent α β
+  (γ : Type) → {α β : Type} → [self : Child γ α β] → Parent α β
 all remaining arguments have metavariables:
   Child ?γ α β
 ```
